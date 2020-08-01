@@ -13,10 +13,14 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# for name_1 in names_1: #This way takes 15.855556011199951 seconds on my PC. It is so slow because it is quadratic or O(N2).
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
+
+for name_1 in names_1: #My way takes 2.4492340087890625 seconds on my PC
+    if name_1 in names_2:
+        duplicates.append(name_1)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
